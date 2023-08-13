@@ -1,0 +1,156 @@
+body{
+    background: rgb(237, 172, 172);
+}
+
+.logout{
+    margin: auto;
+    padding: 1rem 0 0 1rem;
+    overflow: hidden;
+    position: absolute;
+}
+
+.bg-flower .img1{
+    position: absolute;
+    width: 400px;
+    right: 0%;
+    top: 1rem;
+    z-index: -1;
+}
+
+.bg-flower .img2{
+    width: 400px;
+    position: absolute;
+    top: 20rem;
+    z-index: -1;
+}
+
+a{
+    text-decoration: none;
+}
+
+.form{
+    padding:30px 200px 25px 200px;
+}
+
+h1{
+    padding-top: 30px;
+    font-family:"Lucida Console", Courier, monospace;
+}
+
+.al{
+    width: fit-content;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.template{
+    padding:0px 100px 0px 100px;
+}
+
+h4{
+    padding-bottom: 20px;
+    font-family:"Lucida Console", Courier, monospace;
+}
+
+.template-items{
+    background: linear-gradient( to top,#ee4a8958 50%,#FFFFFF 50%);
+    border-radius: 30px;
+}
+
+.template .card:hover{
+    transform: scale(1.05);
+ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.template-image img{
+    width: 8rem;
+}
+
+.lists{
+    padding: 15px;
+    margin: 0px 200px 20px 200px;
+    background: none;
+}
+
+.items{
+    background: linear-gradient(10deg, #ef6c9e 50%,#FFFFFF 50%);
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width:1024px) {
+    .bg-flower .img1, .bg-flower .img2{
+        width: 300px;
+    }
+    .bg-flower .img2{
+        top: 25rem;
+    }
+    .form{
+        padding:30px 100px 25px 100px;
+    }
+}
+
+@media screen and (max-width:770px) {
+    .bg-flower .img1{
+        top: 2rem;
+    }
+    .bg-flower .img2{
+        top: 27rem;
+    }
+    .form{
+        padding:30px 60px 25px 60px;
+    }
+    .lists{
+        margin: 0px 40px 20px 40px;
+    }
+
+    .template{
+        padding:0px 30px 0px 30px;
+    }
+    
+}
+
+@media screen and (max-width:575px) {
+    .logout{
+        padding: 0.5rem 0 0 0.5rem;
+    }
+    .bg-flower .img1, .bg-flower .img2{
+        width: 250px;
+    }
+
+    .bg-flower .img1{
+        top: 3rem;
+    }
+
+    .template{
+        padding:0px 140px 0px 140px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .bg-flower .img1, .bg-flower .img2{
+        width: 220px;
+    }
+
+    .bg-flower .img1{
+        top: 4rem;
+    }
+
+    .lists{
+        margin: 0px 30px 20px 30px;
+    }
+
+    .template{
+        padding:0px 60px 0px 60px;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .bg-flower .img1, .bg-flower .img2{
+        width: 180px;
+    }
+
+    .bg-flower .img2{
+        top:29rem;
+    }
+}
