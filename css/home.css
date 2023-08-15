@@ -2,11 +2,27 @@ body{
     background: rgb(237, 172, 172);
 }
 
-.logout{
+.user{
     margin: auto;
     padding: 1rem 0 0 1rem;
     overflow: hidden;
     position: absolute;
+}
+
+.user p{
+    font-size: 18px;
+    background: #FFFFFF;
+    padding: 5px;
+    border-radius: 16px;
+}
+
+.user a{
+    border-radius: 50%;
+}
+
+.user img{
+    height: 25px;
+    width: 25px;
 }
 
 .bg-flower .img1{
@@ -20,7 +36,7 @@ body{
 .bg-flower .img2{
     width: 400px;
     position: absolute;
-    top: 20rem;
+    top: 22rem;
     z-index: -1;
 }
 
@@ -41,6 +57,16 @@ h1{
     width: fit-content;
     margin: auto;
     margin-top: 2rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.voice {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .template{
@@ -76,6 +102,13 @@ h4{
     background: linear-gradient(10deg, #ef6c9e 50%,#FFFFFF 50%);
     margin-bottom: 15px;
     border-radius: 20px;
+    position: relative;
+}
+
+.shareButton {
+    position: absolute;
+    right: 10px;
+    bottom: 152px;
 }
 
 @media screen and (max-width:1024px) {
@@ -111,15 +144,33 @@ h4{
 }
 
 @media screen and (max-width:575px) {
-    .logout{
+    .user{
         padding: 0.5rem 0 0 0.5rem;
     }
+
+    .user p{
+        font-size: 15px;
+    }
+
+    .user img{
+        height: 20px;
+        width: 20px;
+    }
+
+    h1{
+        padding-top: 5rem;
+    }
+
     .bg-flower .img1, .bg-flower .img2{
         width: 250px;
     }
 
     .bg-flower .img1{
-        top: 3rem;
+        top: 6.5rem;
+    }
+
+    .bg-flower .img2{
+        top: 30rem;
     }
 
     .template{
@@ -130,10 +181,6 @@ h4{
 @media screen and (max-width:450px) {
     .bg-flower .img1, .bg-flower .img2{
         width: 220px;
-    }
-
-    .bg-flower .img1{
-        top: 4rem;
     }
 
     .lists{

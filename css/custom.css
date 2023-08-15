@@ -46,6 +46,13 @@ h1{
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.19) 10px 30px 40px, rgba(0, 0, 0, 0.23) 0px 10px 10px;
     padding: 0 1rem;
+    position: relative;
+}
+
+.shareButton{
+    position: absolute;
+    right: 30px;
+    top: 200px;
 }
 
 .content{
@@ -119,6 +126,10 @@ td:nth-child(3){
         min-height: 500px;
     }
     
+    .shareButton{
+        top: 180px;
+    }
+
     .img1{
         left: 0;
         top: 1%;

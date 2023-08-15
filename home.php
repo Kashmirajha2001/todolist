@@ -77,10 +77,18 @@
 
 <body>
 
-  <div class="logout">
+  <div class="user">
+    <?php
+      $userDisplay= $user;
+      if(strlen($user)>10)
+          $userDisplay = substr($user,0,10)."...";
+        echo '<p><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+        </svg> '. $userDisplay.'</p>';
+    ?>
     <a href="index.php" type="button" class="btn btn-light btn-sm">
-      <img width="25" height="25" src="./image/turn-off.png" alt="">
-      </a>
+      <img src="./image/turn-off.png" alt="">
+    </a>
   </div>
 
   <h1>
@@ -107,12 +115,30 @@
             <input type="hidden" name="snoEdit" id="snoEdit">
             <div class="form-group">
               <label for="title">Note Title</label>
-              <input type="text" class="form-control" id="titleEdit" name="titleEdit" aria-describedby="emailHelp">
+              <div class="input-group">
+                <input type="text" class="form-control" id="titleEdit" name="titleEdit" aria-describedby="emailHelp">
+                <button type="button" class="btn btn-light voice" id="titleEditVoiceButton"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0dcaf0"
+                    class="bi bi-mic-fill" viewBox="0 0 16 16">
+                    <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
+                    <path
+                      d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+                  </svg></button>
+              </div>
             </div>
 
             <div class="form-group">
               <label for="desc">Note Description</label>
-              <textarea class="form-control" id="contentEdit" name="contentEdit" rows="3"></textarea>
+              <div class="input-group">
+                <textarea class="form-control" id="contentEdit" name="contentEdit" rows="3"></textarea>
+                <button type="button" class="btn btn-light voice" id="contentEditVoiceButton"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0dcaf0"
+                    class="bi bi-mic-fill" viewBox="0 0 16 16">
+                    <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
+                    <path
+                      d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+                  </svg></button>
+              </div>
             </div>
           </div>
           <div class="modal-footer d-block mr-auto">
@@ -156,14 +182,31 @@
   <div class="container mb-3 form">
     <form action="home.php" method="POST">
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Title of your note</label>
-        <input type="text" class="form-control" id="title" name="title" required="required"
-          aria-describedby="emailHelp">
+        <label for="title" class="form-label">Title of your note</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="title" name="title" required="required"
+            aria-describedby="emailHelp">
+          <button type="button" class="btn btn-light voice" id="titleVoiceButton"><svg xmlns="http://www.w3.org/2000/svg"
+              width="16" height="16" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">
+              <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
+              <path
+                d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+            </svg></button>
+        </div>
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-        <textarea class="form-control" id="content" name="content" required="required" rows="3"></textarea>
+        <label for="content" class="form-label">Content</label>
+        <div class="input-group">
+          <textarea class="form-control" id="content" name="content" required="required" rows="3"></textarea>
+          <button type="button" class="btn btn-light voice" id="contentVoiceButton"><svg xmlns="http://www.w3.org/2000/svg"
+              width="16" height="16" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">
+              <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
+              <path
+                d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+            </svg></button>
+        </div>
       </div>
+
       <button type="submit" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
           fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -176,6 +219,7 @@
   <h4>
     <center>Customize these Templates</center>
   </h4>
+
   <div class="container my-4 template">
     <div class="row">
       <a class="col-sm-4 mb-3 mb-sm-0" href="kitchen.php">
@@ -216,7 +260,7 @@
     <h4>
       <center>Your Custom To-Do-Lists</center>
     </h4>
-    <div class="card text-center lists" id="myTable">
+    <div class="card text-center lists">
       <?php
         $sql = "SELECT * FROM `list` WHERE `user`='$user'";
         $result = mysqli_query($connection, $sql);
@@ -227,7 +271,8 @@
           $sno++;
           echo '
           <div class="card-body items">
-            <h5 style="display:inline;" class="card-title">'.$sno.') '.'</h5><h5 class="card-title" style="display:inline;">'.$row['title'].'</h5>
+            <h5 style="display:inline;" class="sno">'.$sno.') '.'</h5>
+            <h5 class="card-title" style="display:inline;">'.$row['title'].'</h5>
             <p class="card-text">'. $row['content'].'</p>
 
             <a class="btn btn-info btn-sm edit" id='.$row['sno'].'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -238,6 +283,11 @@
             <a class="btn btn-info btn-sm delete" id=d'.$row['sno'].'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
             <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/></svg> 
             Delete</a>
+
+            <button class="btn btn-light btn-sm shareButton"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+            <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+            </svg></button>
+
             <div class="invisible">hello</div>
             <div class="card-footer text-body-secondary">'. $row['tsStamp'].'</div>
           </div>
@@ -246,6 +296,9 @@
       ?>
     </div>
   </div>
+
+  <script src="./JavaScript/script.js"></script>
+  <script src="./JavaScript/scriptModal.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -256,6 +309,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+
 
   <script>
     edits = document.getElementsByClassName('edit'); //fetching the edit button
@@ -293,6 +347,29 @@
         }
       })
     })
+  </script>
+
+  <script>
+    var shareButtons = document.querySelectorAll('.shareButton');
+        shareButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var cardBody = this.parentElement;
+                var sno = cardBody.querySelector('.items .sno').textContent;
+                var title = cardBody.querySelector('.items .card-title').textContent;
+                var content = cardBody.querySelector('.items .card-text').textContent;
+                var contentToShare =sno + title + '- ' + content;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        text: contentToShare,
+                    })
+                    .then(() => console.log('Shared successfully'))
+                    .catch(error => console.error('Error sharing:', error));
+                } else {
+                    console.log('Web Share API not supported.');
+                }
+            });
+        });
   </script>
 </body>
 

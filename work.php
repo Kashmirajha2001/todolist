@@ -78,7 +78,16 @@
         <form action="work.php" method="POST" class="content">
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                <textarea class="form-control" id="content" name="content" required="required" rows="2"></textarea>
+                <div class="input-group">
+                    <textarea class="form-control" id="content" name="content" required="required" rows="2"></textarea>
+                    <button type="button" class="btn btn-light voice" id="contentVoiceButton"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-mic-fill" viewBox="0 0 16 16">
+                            <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
+                            <path
+                                d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+                        </svg></button>
+                </div>
             </div>
             <button type="submit" class="btn btn-sm btn-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                     height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
@@ -87,6 +96,11 @@
                         d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                 </svg> Add note</button>
         </form>
+
+        <button class="btn btn-light btn-sm shareButton" id="shareButton"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+            <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+        </svg></button>
+
         <div class="container">
             <table class="table" id="myTable">
                 <thead>
@@ -125,6 +139,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+    <script src="./JavaScript/custom.js"></script>
 
     <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
