@@ -7,16 +7,23 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * from `users` where `username`= '$username' and `password` = '$password'";
+        $sql = "SELECT * from `users` where `username`= '$username'";
 
         $result = mysqli_query($connection,$sql);
         $n= mysqli_num_rows($result);
 
         if($n){ 
-            session_start();
-            $_SESSION['loggedIn']=true;
-            $_SESSION['username']=$username;
-            header("location: home.php");
+            while($row=mysqli_fetch_assoc($result)){
+                if(password_verify($password,$row['password'])){
+                    session_start();
+                    $_SESSION['loggedIn']=true;
+                    $_SESSION['username']=$username;
+                    header("location: home.php");
+                }
+                else{
+                    $login=false;
+                } 
+            }
         }
         else{
             $login=false;

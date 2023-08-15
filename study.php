@@ -5,7 +5,10 @@
     include 'dbconnect.php';
 
     session_start();
-    $user = $_SESSION['username'];
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn']!=true){
+        header("location: index.php");
+        exit;
+    }
 
     if(isset($_GET['delete'])){
       $sno = $_GET['delete'];

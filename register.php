@@ -11,7 +11,8 @@
         $cpassword =$_POST['cpassword'];
 
         if(($password==$cpassword)){
-            $sql = "INSERT INTO `users` (`username`,`password`, `date`) VALUES ('$username','$password', current_timestamp())";
+            $hashPass = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO `users` (`username`,`password`, `date`) VALUES ('$username','$hashPass', current_timestamp())";
 
             $result = mysqli_query($connection,$sql);
 
