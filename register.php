@@ -105,7 +105,7 @@
         <br>
         <button type="submit" class="btn btn-sm btn-light">Sign Up <img src="./image/login.png" width="18" height="18"></button>
         <p><center>Already have an account?</center></p>
-        <a href="index.php"><center>Click here</a></center></p>
+        <a href="index.php"><center>SignIn</a></center></p>
      </form>
     </div>
 

@@ -65,12 +65,22 @@
 
 <body>
 
+    <div class="home">
+        <a href="home.php" type="button" class="btn btn-light btn-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#FFFFFF" class="bi bi-house-fill" viewBox="0 0 16 16">
+            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+            <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+            </svg>
+        </a>
+    </div>
+
+    <img src="./image/flower.png" alt="" class="img1">
+    <img src="./image/flower.png" alt="" class="img2">
+
     <div class="container mb-3 form">
         <h1>
             <center>Kitchen-List</center>
         </h1>
-        <img src="./image/flower.png" alt="" class="img1">
-        <img src="./image/flower.png" alt="" class="img2">
         <?php
     if($insert){
       echo '<div class="alert alert-success alert-dismissible fade show al" role="alert">
@@ -146,8 +156,8 @@
                     echo '<input type="checkbox" class="mx-1 complete" name="complete" id=c'.$row['sno'].'>';
             
             echo "
-             <button class='delete btn btn-sm btn-dark' id=".$row['sno']."><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
-            <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z'/></svg>Delete</button>  </td>
+             <a class='delete btn btn-sm btn-dark' id=".$row['sno']."><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
+            <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z'/></svg>Delete</a>  </td>
           </tr>";
             } 
           ?>
@@ -192,18 +202,18 @@
         })
     </script>
 
-<script>
-    completes = document.getElementsByClassName('complete');
-    Array.from(completes).forEach((element) => {
-      element.addEventListener("click", (e) => {
-        console.log("Complete ");
-        sno = e.target.id.substr(1);
-        console.log(sno);
-        complete = sno;
-        console.log(complete);
-        window.location.href = 'kitchen.php?complete=' + sno;
-      })
-    })
+    <script>
+        completes = document.getElementsByClassName('complete');
+        Array.from(completes).forEach((element) => {
+            element.addEventListener("click", (e) => {
+                console.log("Complete ");
+                sno = e.target.id.substr(1);
+                console.log(sno);
+                complete = sno;
+                console.log(complete);
+                window.location.href = 'kitchen.php?complete=' + sno;
+            })
+        })
     </script>
 </body>
 

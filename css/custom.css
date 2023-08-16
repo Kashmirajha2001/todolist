@@ -16,6 +16,19 @@ body{
     position: relative;
 }
 
+.home{
+    padding: 1rem 1rem;
+    overflow: hidden;
+    position: absolute;
+    right: 1px;
+    top : 1px;
+}
+
+.home a{
+    border-radius: 50%;
+    background: rgb(237, 172, 172);
+}
+
 .img1{
     width: 400px;
     position: absolute;
@@ -141,6 +154,11 @@ td:nth-child(3){
 
 
 @media screen and (max-width:400px){
+    .home{
+        top : -7px;
+        right: -7px;
+    }
+
     .form{
         width: 290px;
     }

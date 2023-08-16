@@ -2,6 +2,12 @@
 
     $login=true;
 
+    session_start();
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
+        header("location: home.php");
+        exit();
+    }
+
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         include 'dbconnect.php';
         $username = $_POST['username'];
@@ -20,6 +26,36 @@
                     session_start();
                     $_SESSION['loggedIn']=true;
                     $_SESSION['username']=$username;
+
+                    if (isset($_POST['remember'])) {
+                        // Generate a unique token
+                        $token = bin2hex(random_bytes(16));
+                
+                        // Store the token in the database (update the users table)
+                        $updateTokenSql = "UPDATE `users` SET `remember_me_token` = ? WHERE `username` =? ";
+                        $updateTokenStmt = mysqli_prepare($connection, $updateTokenSql);
+
+                        if (!$updateTokenStmt) {
+                            die('Error preparing update token statement: ' . mysqli_error($connection));
+                        }
+                        
+                        if ($updateTokenStmt) {
+                            mysqli_stmt_bind_param($updateTokenStmt, "ss", $token, $username);
+                        
+                            if (mysqli_stmt_execute($updateTokenStmt)) {
+                                // Token update successful
+                            } else {
+                                die('Error executing update token statement: ' . mysqli_stmt_error($updateTokenStmt));
+                            }
+                        
+                            mysqli_stmt_close($updateTokenStmt);
+                        } else {
+                            die('Error preparing update token statement: ' . mysqli_error($connection));
+                        }
+                
+                        // Set a long-lasting cookie with the token
+                        setcookie("remember_me_token", $token, time() + (30 * 24 * 60 * 60), "/"); // 30 days
+                    }
                     header("location: home.php");
                     exit();
                 }
@@ -81,14 +117,14 @@
             <input type="password" class="form-control" id="password" name="password"
             required="required">
         </div>
-        <div class="form-check">
+        <div class="form-check my-2">
             <input type="checkbox" class="form-check-input" id="remember" name="remember">
             <label class="form-check-label" for="remember">Remember me</label>
         </div>
         <br>
         <button type="submit" class="btn btn-sm btn-light">Login <img src="./image/login.png" width="18" height="18"></button>
         <p><center>Don't have an account?</center></p>
-        <a href="register.php"><center>Click here</a></center></p>
+        <a href="register.php"><center>SignUp</a></center></p>
      </form>
     </div>
 
