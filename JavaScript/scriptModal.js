@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function startVoiceRecognition(inputElement) {
         recognition = new webkitSpeechRecognition() || new SpeechRecognition();
-        recognition.lang = 'en-US';
+        recognition.lang = window.navigator.language;
 
         recognition.onresult = function (event) {
             const spokenText = event.results[0][0].transcript;

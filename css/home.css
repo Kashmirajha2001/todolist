@@ -12,7 +12,7 @@ body{
 .user p{
     font-size: 18px;
     background: #FFFFFF;
-    padding: 5px;
+    padding: 5px 9px;
     border-radius: 16px;
 }
 
@@ -108,7 +108,7 @@ h4{
 .shareButton {
     position: absolute;
     right: 10px;
-    bottom: 152px;
+    top: 10px;
 }
 
 @media screen and (max-width:1024px) {

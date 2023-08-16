@@ -67,7 +67,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="./image/fav.jpg">
   <title>To do list</title>
-
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -262,7 +262,7 @@
     </h4>
     <div class="card text-center lists">
       <?php
-        $sql = "SELECT * FROM `list` WHERE `user`='$user'";
+        $sql = "SELECT * FROM `list` WHERE `user`='$user' ORDER by `complete`";
         $result = mysqli_query($connection, $sql);
         if(mysqli_num_rows($result)==0)
             echo '<p>You do not have any custom templates</p>';
@@ -272,7 +272,7 @@
           echo '
           <div class="card-body items">
             <h5 style="display:inline;" class="sno">'.$sno.') '.'</h5>
-            <h5 class="card-title" style="display:inline;">'.$row['title'].'</h5>
+            <h5 class="card-title" style="display:inline;">'.$row['title'].'</h5> 
             <p class="card-text">'. $row['content'].'</p>
 
             <a class="btn btn-info btn-sm edit" id='.$row['sno'].'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -288,8 +288,17 @@
             <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
             </svg></button>
 
-            <div class="invisible">hello</div>
-            <div class="card-footer text-body-secondary">'. $row['tsStamp'].'</div>
+            <br>';
+            
+            if($row['complete']==1)
+                echo '<input type="checkbox" checked class="my-3 complete" name="complete" id=c'.$row['sno'].'>';
+            else
+                echo '<input type="checkbox" class="my-3 complete" name="complete" id=c'.$row['sno'].'>';
+            echo ' <label class="form-check-label" for="flexCheckCheckedDisabled">
+             Completed
+            </label>';    
+
+            echo '<div class="card-footer text-body-secondary">'. $row['tsStamp'].'</div>
           </div>
           ';
         }
@@ -309,7 +318,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-
 
   <script>
     edits = document.getElementsByClassName('edit'); //fetching the edit button
@@ -345,6 +353,20 @@
         else {
           console.log("no");
         }
+      })
+    })
+  </script>
+
+  <script>
+    completes = document.getElementsByClassName('complete');
+    Array.from(completes).forEach((element) => {
+      element.addEventListener("click", (e) => {
+        console.log("Complete ");
+        sno = e.target.id.substr(1);
+        console.log(sno);
+        complete = sno;
+        console.log(complete);
+        window.location.href = 'complete.php?complete=' + sno;
       })
     })
   </script>

@@ -9,6 +9,8 @@
 
         $sql = "SELECT * from `users` where `username`= '$username'";
 
+        $stmt = mysqli_prepare($connection, $sql);
+    
         $result = mysqli_query($connection,$sql);
         $n= mysqli_num_rows($result);
 
@@ -19,6 +21,7 @@
                     $_SESSION['loggedIn']=true;
                     $_SESSION['username']=$username;
                     header("location: home.php");
+                    exit();
                 }
                 else{
                     $login=false;
@@ -79,8 +82,8 @@
             required="required">
         </div>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Remember me</label>
+            <input type="checkbox" class="form-check-input" id="remember" name="remember">
+            <label class="form-check-label" for="remember">Remember me</label>
         </div>
         <br>
         <button type="submit" class="btn btn-sm btn-light">Login <img src="./image/login.png" width="18" height="18"></button>

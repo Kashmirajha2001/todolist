@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function startVoiceRecognition(inputElement) {
         recognition = new webkitSpeechRecognition() || new SpeechRecognition();
-        recognition.lang = 'en-US';
+        recognition.lang = window.navigator.language;
 
         recognition.onresult = function (event) {
             const spokenText = event.results[0][0].transcript;
@@ -45,7 +45,7 @@ document.getElementById('shareButton').addEventListener('click', function() {
 
     for (var i = 1; i < table.rows.length; i++) {
         var row = table.rows[i];
-        tableText += row.cells[0].innerText + '\t' + row.cells[1].innerText + '\n';
+        tableText += row.cells[0].innerText + '.\t' + row.cells[1].innerText + '\n';
     }
 
     if (navigator.share) {
