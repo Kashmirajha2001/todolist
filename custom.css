@@ -1,0 +1,183 @@
+*{
+    padding: 0;;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    min-height: 100vh;
+    max-height: max-content;
+    background: linear-gradient(#FFFFFF,rgb(237, 172, 172));
+    position: relative;
+}
+
+.home{
+    padding: 1rem 1rem;
+    overflow: hidden;
+    position: absolute;
+    right: 1px;
+    top : 1px;
+}
+
+.home a{
+    border-radius: 50%;
+    background: rgb(237, 172, 172);
+}
+
+.img1{
+    width: 400px;
+    position: absolute;
+    left: 20%;
+    top: -2%;
+    z-index: -1;
+}
+
+.img2{
+    width: 400px;
+    position: absolute;
+    right: 15%;
+    bottom: 0;
+    z-index: -1;
+}
+
+h1{
+    padding-top: 20px;
+    font-family:"Lucida Console", Courier, monospace;
+}
+
+.form{
+    margin-top: 1rem;
+    background: linear-gradient(60deg, rgb(237, 172, 172) 50%,rgb(248, 229, 229)50%);
+    width: 430px;
+    min-height: 570px;
+    max-height: max-content;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.19) 10px 30px 40px, rgba(0, 0, 0, 0.23) 0px 10px 10px;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.shareButton{
+    position: absolute;
+    right: 30px;
+    top: 200px;
+}
+
+.content{
+    padding: 20px;
+}
+.al{
+    width: fit-content;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+table{
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+th{
+    font-size: 0.8em;
+}
+
+/* th:nth-child(1){
+    width: 13%;
+}
+
+td:nth-child(2){
+    width: 50%;
+}
+
+td:nth-child(3){
+    width: 17%;
+} */
+
+.fixed-len{
+    max-width: 100px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+@media screen and (max-width:1000px){
+    .img1{
+        left: 10%;
+    }
+    .img2{
+        right: 10%;
+    }
+}
+
+@media screen and (max-width:850px){
+    .form{
+        width: 400px;
+    }
+    .img1{
+        left: 4%;
+    }
+    .img2{
+        right: 4%;
+    }
+}
+
+
+@media screen and (max-width:600px){
+    .img1,.img2{
+        width: 300px;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+    .form{
+        width: 300px;
+        min-height: 500px;
+    }
+    
+    .shareButton{
+        top: 180px;
+    }
+
+    .img1{
+        left: 0;
+        top: 1%;
+    }
+    .img2{
+        right: 0;
+    }
+}
+
+
+@media screen and (max-width:400px){
+    .home{
+        top : -7px;
+        right: -7px;
+    }
+
+    .form{
+        width: 290px;
+    }
+
+    th{
+        font-size: 0.7em;
+    }
+}
+
+@media screen and (max-width:300px){
+    .form{
+        width: 230px;
+    }
+
+    .img1,.img2{
+        width: 230px;
+    }
+
+    th{
+        font-size: 0.5em;
+    }
+}

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     titleEditVoiceButton.addEventListener('click', function () {
         if (!recognition || recognition.ended) {
             startVoiceRecognition(titleEditInput);
-            showAlert('Recording for Name...');
+            showAlert('Recording for Title...');
         } else {
             recognition.stop();
             showAlert('Recording stopped.');
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     contentEditVoiceButton.addEventListener('click', function () {
         if (!recognition || recognition.ended) {
             startVoiceRecognition(contentEditInput);
-            showAlert('Recording for Email...');
+            showAlert('Recording for Content...');
         } else {
             recognition.stop();
             showAlert('Recording stopped.');

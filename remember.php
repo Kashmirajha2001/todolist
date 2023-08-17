@@ -20,10 +20,6 @@ if (isset($_COOKIE['remember_me_token'])) {
         $_SESSION['loggedIn'] = true;
         $_SESSION['username'] = $username;
 
-        // Update the token and cookie expiration time (optional)
-        $newExpiration = time() + (30 * 24 * 60 * 60); // 30 days
-        setcookie("remember_me_token", $token, $newExpiration, "/");
-
         header("location: home.php");
         exit();
     }
