@@ -137,6 +137,8 @@ td:nth-child(3){
     .form{
         width: 300px;
         min-height: 500px;
+        margin-top: 4rem;
+        padding-bottom: 1rem;
     }
     
     .shareButton{
